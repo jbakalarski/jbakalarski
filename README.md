@@ -13,8 +13,3 @@
 <h3 align="left">📊 Statistics:</h3>
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=jbakalarski&show_icons=true&theme=merko&locale=en&layout=compact" alt="jbakalarski" /></p>
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=jbakalarski&show_icons=true&theme=merko&locale=en" alt="jbakalarski" /></p>
-
-<br><br><br>
-
-<h3 align="left">💲 Support</h3>
-<p><a href="https://support.jedrzej.me/" target="_blank"> <img align="left" src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/main/assets/supportme.png" width="172" height="56" alt="jbakalarski" /></a></p>
