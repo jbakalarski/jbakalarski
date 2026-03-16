@@ -9,9 +9,9 @@
 <h3 align="left">📞 Connect with me:</h3>
 <!-- icons:connect:start -->
 <p align="left">
-<a href="https://facebook.com/jedrzej.bakalarski" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1280px-2021_Facebook_icon.svg.png" width="40" height="40" alt="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1280px-2021_Facebook_icon.svg.png" /></a>
-<a href="https://instagram.com/j3drz3j_" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1280px-Instagram_icon.png" width="40" height="40" alt="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1280px-Instagram_icon.png" /></a>
-<a href="https://www.linkedin.com/in/jedrzej-bakalarski/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png" width="40" height="40" alt="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png" /></a>
+<a href="https://facebook.com/jedrzej.bakalarski" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1280px-2021_Facebook_icon.svg.png" width="40" height="40" alt="custom icon" /></a>
+<a href="https://instagram.com/j3drz3j_" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1280px-Instagram_icon.png" width="40" height="40" alt="custom icon" /></a>
+<a href="https://www.linkedin.com/in/jedrzej-bakalarski/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png" width="40" height="40" alt="custom icon" /></a>
 <a href="https://x.com/j3drz3j_" target="_blank" rel="noreferrer"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" width="40" height="40" alt="x" /></a>
 </p>
 <!-- icons:connect:end -->
