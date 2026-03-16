@@ -76,10 +76,17 @@ def icon_url(name: str) -> str:
     return f"{DEVICON_BASE}/{icon_name}/{icon_name}-original.svg"
 
 
+def icon_alt(name: str) -> str:
+    if is_url(name):
+        return "custom icon"
+
+    return name
+
+
 def build_connect_html(items: list[tuple[str, str | None]]) -> list[str]:
     lines = ["<p align=\"left\">"]
     for name, link in items:
-        image = f"<img src=\"{icon_url(name)}\" width=\"40\" height=\"40\" alt=\"{name}\" />"
+        image = f"<img src=\"{icon_url(name)}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\" />"
         if link:
             lines.append(f"<a href=\"{link}\" target=\"_blank\" rel=\"noreferrer\">{image}</a>")
         else:
@@ -91,7 +98,7 @@ def build_connect_html(items: list[tuple[str, str | None]]) -> list[str]:
 def build_tools_html(items: list[tuple[str, str | None]]) -> list[str]:
     lines = ["<p align=\"left\">"]
     for name, link in items:
-        image = f"<img src=\"{icon_url(name)}\" width=\"40\" height=\"40\" alt=\"{name}\" />"
+        image = f"<img src=\"{icon_url(name)}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\" />"
         if link:
             lines.append(f"<a href=\"{link}\" target=\"_blank\" rel=\"noreferrer\">{image}</a>")
         else:
