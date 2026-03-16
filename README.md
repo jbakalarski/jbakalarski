@@ -1,4 +1,11 @@
-<h1 align="center">Hi 👋, I'm Jędrzej</h1>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=30&pause=1000&color=FFFFFF&center=true&vCenter=true&width=435&lines=%F0%9F%91%8B+Hi%2C+I'm+J%C4%99drzej">
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=30&pause=1000&color=000000&center=true&vCenter=true&width=435&lines=%F0%9F%91%8B+Hi%2C+I'm+J%C4%99drzej">
+    <img src="https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=30&pause=1000&color=000000&center=true&vCenter=true&width=435&lines=%F0%9F%91%8B+Hi%2C+I'm+J%C4%99drzej" alt="Typing SVG" />
+  </picture>
+</p>
+
 <h3 align="left">📞 Connect with me:</h3>
 <p align="left">
 <a href="https://x.com/j3drz3j_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="jedrzej_me" height="30" width="40" /></a>
