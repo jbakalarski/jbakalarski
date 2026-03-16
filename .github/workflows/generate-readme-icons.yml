@@ -1,0 +1,34 @@
+name: Generate README icons
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - profile-icons.txt
+      - .github/scripts/generate_readme_icons.py
+      - .github/workflows/generate-readme-icons.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build-readme-icons:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate README sections
+        run: python .github/scripts/generate_readme_icons.py
+
+      - name: Commit README changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(readme): update icon sections"
+          file_pattern: README.md

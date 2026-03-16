@@ -1,0 +1,17 @@
+[connectwithme]
+https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1280px-2021_Facebook_icon.svg.png=https://facebook.com/jedrzej.bakalarski
+https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1280px-Instagram_icon.png=https://instagram.com/j3drz3j_
+https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png=https://www.linkedin.com/in/jedrzej-bakalarski/
+x=https://x.com/j3drz3j_
+
+[languagesandtools]
+python
+docker
+linux
+git
+html5
+css3
+javascript
+cloudflare
+googlecloud
+azure
