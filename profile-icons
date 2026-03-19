@@ -28,7 +28,11 @@ python
 docker
 linux
 git
-markdown
+
+; Markdown
+https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_black.png
+https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_white.png
+
 html5
 css3
 javascript
