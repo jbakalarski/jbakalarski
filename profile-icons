@@ -28,12 +28,16 @@ python
 docker
 linux
 git
+markdown
 html5
 css3
 javascript
 cloudflare
 googlecloud
 azure
+figma
+photoshop
+fusion
 
 [options]
 margin=5px
