@@ -5,7 +5,7 @@ from pathlib import Path
 import re
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-CONFIG_PATH = REPO_ROOT / "profile-icons.txt"
+CONFIG_PATH = REPO_ROOT / "profile-icons"
 README_PATH = REPO_ROOT / "README.md"
 
 CONNECT_START = "<!-- icons:connect:start -->"
@@ -21,6 +21,8 @@ URL_VARIANT_PATTERN = re.compile(
     r"^(?P<base>.+)_(?P<variant>white|black)(?P<tail>(?:\.[^/?#]+)?(?:[?#].*)?)$",
     re.IGNORECASE,
 )
+PX_MARGIN_PATTERN = re.compile(r"^(?P<value>\d+(?:\.\d+)?)px$", re.IGNORECASE)
+NUMBER_MARGIN_PATTERN = re.compile(r"^\d+(?:\.\d+)?$")
 
 
 def is_url(value: str) -> bool:
@@ -58,6 +60,9 @@ def parse_config(config_text: str) -> tuple[list[IconItem], list[IconItem]]:
     section = ""
     connect: list[IconItem] = []
     tools: list[IconItem] = []
+    global_margin: str | None = None
+    connect_margin: str | None = None
+    tools_margin: str | None = None
 
     for raw_line in config_text.splitlines():
         line = raw_line.strip()
@@ -66,6 +71,18 @@ def parse_config(config_text: str) -> tuple[list[IconItem], list[IconItem]]:
 
         if line.startswith("[") and line.endswith("]"):
             section = line[1:-1].strip().lower()
+            continue
+
+        if section == "options" and "=" in line:
+            key, raw_value = line.split("=", 1)
+            normalized_key = key.strip().lower().replace("-", "_")
+            margin_value = normalize_margin(raw_value.strip())
+            if normalized_key == "margin":
+                global_margin = margin_value
+            elif normalized_key == "connect_margin":
+                connect_margin = margin_value
+            elif normalized_key == "tools_margin":
+                tools_margin = margin_value
             continue
 
         if section not in {"connectwithme", "languagesandtools"}:
@@ -93,7 +110,35 @@ def parse_config(config_text: str) -> tuple[list[IconItem], list[IconItem]]:
         else:
             tools.append(IconItem(name=name, source=source, link=url, variant=variant))
 
-    return connect, tools
+    if connect_margin is None:
+        connect_margin = global_margin
+    if tools_margin is None:
+        tools_margin = global_margin
+
+    return connect, tools, connect_margin, tools_margin
+
+
+def normalize_margin(value: str) -> str | None:
+    raw = value.strip().lower()
+    if not raw:
+        return None
+    if raw == "0":
+        return "0"
+
+    if NUMBER_MARGIN_PATTERN.fullmatch(raw):
+        return to_rem(float(raw))
+
+    px_match = PX_MARGIN_PATTERN.fullmatch(raw)
+    if px_match:
+        return to_rem(float(px_match.group("value")))
+
+    return raw
+
+
+def to_rem(px_value: float) -> str:
+    rem_value = px_value / 16
+    normalized = f"{rem_value:.4f}".rstrip("0").rstrip(".")
+    return f"{normalized}rem"
 
 
 def icon_url(name: str, variant: str | None = None) -> str:
@@ -124,23 +169,41 @@ def resolve_source(item: IconItem | None, preferred_variant: str | None) -> str 
     return icon_url(item.source, variant)
 
 
-def build_theme_aware_image_from_items(name: str, default_item: IconItem | None, white_item: IconItem | None, black_item: IconItem | None) -> str:
+def image_style_attr(margin: str | None) -> str:
+    if not margin:
+        return ""
+    return f' style="margin: {margin};"'
+
+
+def picture_style_attr(margin: str | None) -> str:
+    if not margin:
+        return ""
+    return f' style="display: inline-block; margin: {margin};"'
+
+
+def build_theme_aware_image_from_items(
+    name: str,
+    default_item: IconItem | None,
+    white_item: IconItem | None,
+    black_item: IconItem | None,
+    margin: str | None,
+) -> str:
     has_white = white_item is not None
     has_black = black_item is not None
 
     if not has_white and not has_black:
         default_src = resolve_source(default_item, None) or icon_url(name)
-        return f"<img src=\"{default_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\" />"
+        return f"<img src=\"{default_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_style_attr(margin)} />"
 
     dark_src = resolve_source(white_item, "white") or resolve_source(default_item, "white") or resolve_source(black_item, "black")
     light_src = resolve_source(black_item, "black") or resolve_source(default_item, "black") or resolve_source(white_item, "white")
 
     if dark_src is None or light_src is None:
         fallback_src = resolve_source(default_item, None) or icon_url(name)
-        return f"<img src=\"{fallback_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\" />"
+        return f"<img src=\"{fallback_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_style_attr(margin)} />"
 
     return (
-        "<picture>"
+        f"<picture{picture_style_attr(margin)}>"
         f"<source media=\"(prefers-color-scheme: dark)\" srcset=\"{dark_src}\" />"
         f"<source media=\"(prefers-color-scheme: light)\" srcset=\"{light_src}\" />"
         f"<img src=\"{light_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\" />"
@@ -148,7 +211,7 @@ def build_theme_aware_image_from_items(name: str, default_item: IconItem | None,
     )
 
 
-def build_items_html(items: list[IconItem]) -> list[str]:
+def build_items_html(items: list[IconItem], margin: str | None = None) -> list[str]:
     grouped: dict[tuple[str, str | None], dict[str, IconItem | None]] = {}
     order: list[tuple[str, str | None]] = []
 
@@ -170,6 +233,7 @@ def build_items_html(items: list[IconItem]) -> list[str]:
             default_item=item_group["default"],
             white_item=item_group["white"],
             black_item=item_group["black"],
+            margin=margin,
         )
         if link:
             lines.append(f"<a href=\"{link}\" target=\"_blank\" rel=\"noreferrer\">{image}</a>")
@@ -179,12 +243,12 @@ def build_items_html(items: list[IconItem]) -> list[str]:
     return lines
 
 
-def build_connect_html(items: list[IconItem]) -> list[str]:
-    return build_items_html(items)
+def build_connect_html(items: list[IconItem], margin: str | None = None) -> list[str]:
+    return build_items_html(items, margin=margin)
 
 
-def build_tools_html(items: list[IconItem]) -> list[str]:
-    return build_items_html(items)
+def build_tools_html(items: list[IconItem], margin: str | None = None) -> list[str]:
+    return build_items_html(items, margin=margin)
 
 
 def replace_marked_block(readme_text: str, start_marker: str, end_marker: str, block_lines: list[str]) -> str:
@@ -204,9 +268,9 @@ def main() -> None:
     config_text = CONFIG_PATH.read_text(encoding="utf-8")
     readme_text = README_PATH.read_text(encoding="utf-8")
 
-    connect_items, tool_items = parse_config(config_text)
-    connect_html = build_connect_html(connect_items)
-    tools_html = build_tools_html(tool_items)
+    connect_items, tool_items, connect_margin, tools_margin = parse_config(config_text)
+    connect_html = build_connect_html(connect_items, margin=connect_margin)
+    tools_html = build_tools_html(tool_items, margin=tools_margin)
 
     updated = replace_marked_block(readme_text, CONNECT_START, CONNECT_END, connect_html)
     updated = replace_marked_block(updated, TOOLS_START, TOOLS_END, tools_html)

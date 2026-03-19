@@ -20,3 +20,6 @@ javascript
 cloudflare
 googlecloud
 azure
+
+[options]
+margin=5px

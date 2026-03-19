@@ -7,7 +7,7 @@ on:
   # run on push when generator inputs change
   push:
     paths:
-      - profile-icons.txt
+      - profile-icons
       - .github/scripts/generate_readme_icons.py
       - .github/workflows/generate-readme-icons.yml
 
