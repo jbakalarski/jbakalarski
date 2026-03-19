@@ -30,8 +30,8 @@ linux
 git
 
 ; Markdown
-https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_black.png
-https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_white.png
+https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_black.svg
+https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_white.svg
 
 html5
 css3

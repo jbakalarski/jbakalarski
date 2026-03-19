@@ -183,37 +183,45 @@ def image_spacing_attr(margin: str | None) -> str:
     return f' hspace="{margin}" vspace="{margin}"'
 
 
+def image_behavior_attr(disable_click: bool) -> str:
+    if not disable_click:
+        return ""
+    return ' style="pointer-events: none;"'
+
+
 def build_theme_aware_image_from_items(
     name: str,
     default_item: IconItem | None,
     white_item: IconItem | None,
     black_item: IconItem | None,
     margin: str | None,
+    disable_click: bool = False,
 ) -> str:
     has_white = white_item is not None
     has_black = black_item is not None
+    behavior_attr = image_behavior_attr(disable_click)
 
     if not has_white and not has_black:
         default_src = resolve_source(default_item, None) or icon_url(name)
-        return f"<img src=\"{default_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)} />"
+        return f"<img src=\"{default_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)}{behavior_attr} />"
 
     dark_src = resolve_source(white_item, "white") or resolve_source(default_item, "white") or resolve_source(black_item, "black")
     light_src = resolve_source(black_item, "black") or resolve_source(default_item, "black") or resolve_source(white_item, "white")
 
     if dark_src is None or light_src is None:
         fallback_src = resolve_source(default_item, None) or icon_url(name)
-        return f"<img src=\"{fallback_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)} />"
+        return f"<img src=\"{fallback_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)}{behavior_attr} />"
 
     return (
         "<picture>"
         f"<source media=\"(prefers-color-scheme: dark)\" srcset=\"{dark_src}\" />"
         f"<source media=\"(prefers-color-scheme: light)\" srcset=\"{light_src}\" />"
-        f"<img src=\"{light_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)} />"
+        f"<img src=\"{light_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)}{behavior_attr} />"
         "</picture>"
     )
 
 
-def build_items_html(items: list[IconItem], margin: str | None = None) -> list[str]:
+def build_items_html(items: list[IconItem], margin: str | None = None, disable_click: bool = False) -> list[str]:
     grouped: dict[tuple[str, str | None], dict[str, IconItem | None]] = {}
     order: list[tuple[str, str | None]] = []
 
@@ -236,6 +244,7 @@ def build_items_html(items: list[IconItem], margin: str | None = None) -> list[s
             white_item=item_group["white"],
             black_item=item_group["black"],
             margin=margin,
+            disable_click=disable_click,
         )
         if link:
             lines.append(f"<a href=\"{link}\" target=\"_blank\" rel=\"noreferrer\">{image}</a>")
@@ -250,7 +259,7 @@ def build_connect_html(items: list[IconItem], margin: str | None = None) -> list
 
 
 def build_tools_html(items: list[IconItem], margin: str | None = None) -> list[str]:
-    return build_items_html(items, margin=margin)
+    return build_items_html(items, margin=margin, disable_click=True)
 
 
 def replace_marked_block(readme_text: str, start_marker: str, end_marker: str, block_lines: list[str]) -> str:
