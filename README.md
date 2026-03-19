@@ -1,9 +1,5 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=30&pause=1000&color=FFFFFF&center=true&vCenter=true&width=435&lines=%F0%9F%91%8B+Hi%2C+I'm+J%C4%99drzej">
-    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=30&pause=1000&color=000000&center=true&vCenter=true&width=435&lines=%F0%9F%91%8B+Hi%2C+I'm+J%C4%99drzej">
-    <img src="https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=30&pause=1000&color=000000&center=true&vCenter=true&width=435&lines=%F0%9F%91%8B+Hi%2C+I'm+J%C4%99drzej" alt="Typing SVG" />
-  </picture>
+<img src="https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=30&pause=1000&color=CF16F0&center=true&vCenter=true&width=435&lines=%F0%9F%91%8B+Hi%2C+I'm+J%C4%99drzej!" alt="Typing SVG" />
 </p>
 
 <h3 align="left">📞 Connect with me:</h3>
@@ -31,6 +27,11 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="40" height="40" alt="azure" hspace="5" vspace="5" />
 </p>
 <!-- icons:tools:end -->
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=jbakalarski&show_icons=true&theme=radical&title_color=cf16f0" height="170" alt="jbakalarski's GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jbakalarski&theme=radical&title_color=cf16f0" height="170" alt="Top Langs" />
+</p>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/output/github-contribution-grid-snake-dark.svg">
