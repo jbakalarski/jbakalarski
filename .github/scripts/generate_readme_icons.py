@@ -189,6 +189,12 @@ def image_behavior_attr(disable_click: bool) -> str:
     return ' style="pointer-events: none;"'
 
 
+def link_attrs(open_in_new_tab: bool) -> str:
+    if open_in_new_tab:
+        return ' target="_blank" rel="noopener noreferrer"'
+    return ""
+
+
 def build_theme_aware_image_from_items(
     name: str,
     default_item: IconItem | None,
@@ -238,16 +244,17 @@ def build_items_html(items: list[IconItem], margin: str | None = None, disable_c
     lines = ["<p align=\"left\">"]
     for name, link in order:
         item_group = grouped[(name, link)]
+        disable_click_for_item = disable_click and not bool(link)
         image = build_theme_aware_image_from_items(
             name,
             default_item=item_group["default"],
             white_item=item_group["white"],
             black_item=item_group["black"],
             margin=margin,
-            disable_click=disable_click,
+            disable_click=disable_click_for_item,
         )
         if link:
-            lines.append(f"<a href=\"{link}\" target=\"_blank\" rel=\"noreferrer\">{image}</a>")
+            lines.append(f"<a href=\"{link}\"{link_attrs(open_in_new_tab=True)}>{image}</a>")
         else:
             lines.append(image)
     lines.append("</p>")
