@@ -12,7 +12,7 @@
 <a href="https://facebook.com/jedrzej.bakalarski" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1280px-2021_Facebook_icon.svg.png" width="40" height="40" alt="custom icon" hspace="5" vspace="5" /></a>
 <a href="https://instagram.com/j3drz3j_" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1280px-Instagram_icon.png" width="40" height="40" alt="custom icon" hspace="5" vspace="5" /></a>
 <a href="https://www.linkedin.com/in/jedrzej-bakalarski/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png" width="40" height="40" alt="custom icon" hspace="5" vspace="5" /></a>
-<a href="https://x.com/j3drz3j_" target="_blank" rel="noreferrer"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_white.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_black.svg" /><img src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_black.svg" width="40" height="40" alt="custom icon" hspace="5" vspace="5" /></picture></a>
+<a href="https://x.com/j3drz3j_" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_icon.png" width="40" height="40" alt="custom icon" hspace="5" vspace="5" /></a>
 </p>
 <!-- icons:connect:end -->
 
