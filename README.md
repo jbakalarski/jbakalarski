@@ -30,8 +30,8 @@
 <!-- icons:tools:end -->
 <br>
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=jbakalarski&show_icons=true&theme=radical&title_color=cf16f0" height="200" alt="jbakalarski's GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jbakalarski&theme=radical&title_color=cf16f0" height="200" alt="Top Langs" />
+  <img src="https://github-readme-stats.vercel.app/api?username=jbakalarski&show_icons=true&theme=radical&title_color=cf16f0" height="170" alt="jbakalarski's GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jbakalarski&theme=radical&title_color=cf16f0" height="170" alt="Top Langs" />
 </p>
 
 <picture>
