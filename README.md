@@ -17,20 +17,20 @@
 <h3 align="left">👨‍💻 Languages and Tools:</h3>
 <!-- icons:tools:start -->
 <p align="left">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="40" height="40" alt="python" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" width="40" height="40" alt="docker" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" width="40" height="40" alt="linux" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="40" height="40" alt="git" hspace="5" vspace="5" />
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_white.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_black.svg" /><img src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_black.svg" width="40" height="40" alt="custom icon" hspace="5" vspace="5" /></picture>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="40" height="40" alt="html5" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="40" height="40" alt="css3" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="40" height="40" alt="javascript" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" width="40" height="40" alt="cloudflare" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="40" height="40" alt="googlecloud" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="40" height="40" alt="azure" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" width="40" height="40" alt="figma" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" width="40" height="40" alt="photoshop" hspace="5" vspace="5" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fusion/fusion-original.svg" width="40" height="40" alt="fusion" hspace="5" vspace="5" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="40" height="40" alt="python" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" width="40" height="40" alt="docker" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" width="40" height="40" alt="linux" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="40" height="40" alt="git" hspace="5" vspace="5" style="pointer-events: none;" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_white.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_black.svg" /><img src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/markdown_black.svg" width="40" height="40" alt="custom icon" hspace="5" vspace="5" style="pointer-events: none;" /></picture>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="40" height="40" alt="html5" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="40" height="40" alt="css3" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="40" height="40" alt="javascript" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" width="40" height="40" alt="cloudflare" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="40" height="40" alt="googlecloud" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="40" height="40" alt="azure" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" width="40" height="40" alt="figma" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" width="40" height="40" alt="photoshop" hspace="5" vspace="5" style="pointer-events: none;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fusion/fusion-original.svg" width="40" height="40" alt="fusion" hspace="5" vspace="5" style="pointer-events: none;" />
 </p>
 <!-- icons:tools:end -->
 <br>
