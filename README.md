@@ -9,26 +9,26 @@
 <h3 align="left">📞 Connect with me:</h3>
 <!-- icons:connect:start -->
 <p align="left">
-<a href="https://facebook.com/jedrzej.bakalarski" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1280px-2021_Facebook_icon.svg.png" width="40" height="40" alt="custom icon" style="margin: 0.3125rem;" /></a>
-<a href="https://instagram.com/j3drz3j_" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1280px-Instagram_icon.png" width="40" height="40" alt="custom icon" style="margin: 0.3125rem;" /></a>
-<a href="https://www.linkedin.com/in/jedrzej-bakalarski/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png" width="40" height="40" alt="custom icon" style="margin: 0.3125rem;" /></a>
-<a href="https://x.com/j3drz3j_" target="_blank" rel="noreferrer"><picture style="display: inline-block; margin: 0.3125rem;"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_white.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_black.svg" /><img src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_black.svg" width="40" height="40" alt="custom icon" /></picture></a>
+<a href="https://facebook.com/jedrzej.bakalarski" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1280px-2021_Facebook_icon.svg.png" width="40" height="40" alt="custom icon" style="margin: 0.625rem;" /></a>
+<a href="https://instagram.com/j3drz3j_" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1280px-Instagram_icon.png" width="40" height="40" alt="custom icon" style="margin: 0.625rem;" /></a>
+<a href="https://www.linkedin.com/in/jedrzej-bakalarski/" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png" width="40" height="40" alt="custom icon" style="margin: 0.625rem;" /></a>
+<a href="https://x.com/j3drz3j_" target="_blank" rel="noreferrer"><picture style="display: inline-block; margin: 0.625rem;"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_white.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_black.svg" /><img src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/assets/x_black.svg" width="40" height="40" alt="custom icon" /></picture></a>
 </p>
 <!-- icons:connect:end -->
 
 <h3 align="left">👨‍💻 Languages and Tools:</h3>
 <!-- icons:tools:start -->
 <p align="left">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="40" height="40" alt="python" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" width="40" height="40" alt="docker" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" width="40" height="40" alt="linux" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="40" height="40" alt="git" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="40" height="40" alt="html5" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="40" height="40" alt="css3" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="40" height="40" alt="javascript" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" width="40" height="40" alt="cloudflare" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="40" height="40" alt="googlecloud" style="margin: 0.3125rem;" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="40" height="40" alt="azure" style="margin: 0.3125rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="40" height="40" alt="python" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" width="40" height="40" alt="docker" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" width="40" height="40" alt="linux" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="40" height="40" alt="git" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="40" height="40" alt="html5" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="40" height="40" alt="css3" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="40" height="40" alt="javascript" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" width="40" height="40" alt="cloudflare" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="40" height="40" alt="googlecloud" style="margin: 0.625rem;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" width="40" height="40" alt="azure" style="margin: 0.625rem;" />
 </p>
 <!-- icons:tools:end -->
 
