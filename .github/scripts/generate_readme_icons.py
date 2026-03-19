@@ -22,6 +22,8 @@ URL_VARIANT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 PX_MARGIN_PATTERN = re.compile(r"^(?P<value>\d+(?:\.\d+)?)px$", re.IGNORECASE)
+REM_MARGIN_PATTERN = re.compile(r"^(?P<value>\d+(?:\.\d+)?)rem$", re.IGNORECASE)
+EM_MARGIN_PATTERN = re.compile(r"^(?P<value>\d+(?:\.\d+)?)em$", re.IGNORECASE)
 NUMBER_MARGIN_PATTERN = re.compile(r"^\d+(?:\.\d+)?$")
 
 
@@ -56,7 +58,7 @@ def split_icon_variant(name: str) -> tuple[str, str | None]:
     return normalized, None
 
 
-def parse_config(config_text: str) -> tuple[list[IconItem], list[IconItem]]:
+def parse_config(config_text: str) -> tuple[list[IconItem], list[IconItem], str | None, str | None]:
     section = ""
     connect: list[IconItem] = []
     tools: list[IconItem] = []
@@ -126,19 +128,25 @@ def normalize_margin(value: str) -> str | None:
         return "0"
 
     if NUMBER_MARGIN_PATTERN.fullmatch(raw):
-        return to_rem(float(raw))
+        return to_px_int(float(raw))
 
     px_match = PX_MARGIN_PATTERN.fullmatch(raw)
     if px_match:
-        return to_rem(float(px_match.group("value")))
+        return to_px_int(float(px_match.group("value")))
 
-    return raw
+    rem_match = REM_MARGIN_PATTERN.fullmatch(raw)
+    if rem_match:
+        return to_px_int(float(rem_match.group("value")) * 16)
+
+    em_match = EM_MARGIN_PATTERN.fullmatch(raw)
+    if em_match:
+        return to_px_int(float(em_match.group("value")) * 16)
+
+    return None
 
 
-def to_rem(px_value: float) -> str:
-    rem_value = px_value / 16
-    normalized = f"{rem_value:.4f}".rstrip("0").rstrip(".")
-    return f"{normalized}rem"
+def to_px_int(value: float) -> str:
+    return str(max(0, round(value)))
 
 
 def icon_url(name: str, variant: str | None = None) -> str:
@@ -169,16 +177,10 @@ def resolve_source(item: IconItem | None, preferred_variant: str | None) -> str 
     return icon_url(item.source, variant)
 
 
-def image_style_attr(margin: str | None) -> str:
-    if not margin:
+def image_spacing_attr(margin: str | None) -> str:
+    if not margin or margin == "0":
         return ""
-    return f' style="margin: {margin};"'
-
-
-def picture_style_attr(margin: str | None) -> str:
-    if not margin:
-        return ""
-    return f' style="display: inline-block; margin: {margin};"'
+    return f' hspace="{margin}" vspace="{margin}"'
 
 
 def build_theme_aware_image_from_items(
@@ -193,20 +195,20 @@ def build_theme_aware_image_from_items(
 
     if not has_white and not has_black:
         default_src = resolve_source(default_item, None) or icon_url(name)
-        return f"<img src=\"{default_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_style_attr(margin)} />"
+        return f"<img src=\"{default_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)} />"
 
     dark_src = resolve_source(white_item, "white") or resolve_source(default_item, "white") or resolve_source(black_item, "black")
     light_src = resolve_source(black_item, "black") or resolve_source(default_item, "black") or resolve_source(white_item, "white")
 
     if dark_src is None or light_src is None:
         fallback_src = resolve_source(default_item, None) or icon_url(name)
-        return f"<img src=\"{fallback_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_style_attr(margin)} />"
+        return f"<img src=\"{fallback_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)} />"
 
     return (
-        f"<picture{picture_style_attr(margin)}>"
+        "<picture>"
         f"<source media=\"(prefers-color-scheme: dark)\" srcset=\"{dark_src}\" />"
         f"<source media=\"(prefers-color-scheme: light)\" srcset=\"{light_src}\" />"
-        f"<img src=\"{light_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\" />"
+        f"<img src=\"{light_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)} />"
         "</picture>"
     )
 
