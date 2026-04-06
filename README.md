@@ -35,8 +35,8 @@
 <!-- icons:tools:end -->
 <br>
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=jbakalarski&show_icons=true&theme=radical&title_color=cf16f0" height="160" alt="jbakalarski's GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jbakalarski&theme=radical&layout=compact&title_color=cf16f0" height="160" alt="Top Langs" />
+  <img src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/profile/stats.svg" height="160" alt="jbakalarski's GitHub stats" />
+  <img src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/refs/heads/main/profile/top-langs.svg" height="160" alt="Top Langs" />
 </p>
 
 <picture>
