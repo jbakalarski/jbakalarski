@@ -189,12 +189,6 @@ def image_behavior_attr(disable_click: bool) -> str:
     return ' style="pointer-events: none;"'
 
 
-def link_attrs(open_in_new_tab: bool) -> str:
-    if open_in_new_tab:
-        return ' target="_blank" rel="noopener noreferrer"'
-    return ""
-
-
 def build_theme_aware_image_from_items(
     name: str,
     default_item: IconItem | None,
@@ -227,12 +221,6 @@ def build_theme_aware_image_from_items(
     )
 
 
-def table_cell_attr(margin: str | None) -> str:
-    if not margin or margin == "0":
-        return ' align="center" valign="middle"'
-    return f' align="center" valign="middle" width="{40 + (int(margin) * 2)}"'
-
-
 def build_items_html(items: list[IconItem], margin: str | None = None, disable_click: bool = False) -> list[str]:
     grouped: dict[tuple[str, str | None], dict[str, IconItem | None]] = {}
     order: list[tuple[str, str | None]] = []
@@ -247,7 +235,7 @@ def build_items_html(items: list[IconItem], margin: str | None = None, disable_c
         else:
             grouped[key]["default"] = item
 
-    cells: list[str] = []
+    rendered_items: list[str] = []
     for name, link in order:
         item_group = grouped[(name, link)]
         disable_click_for_item = disable_click and not bool(link)
@@ -260,19 +248,12 @@ def build_items_html(items: list[IconItem], margin: str | None = None, disable_c
             disable_click=disable_click_for_item,
         )
         if link:
-            content = f"<a href=\"{link}\"{link_attrs(open_in_new_tab=True)}>{image}</a>"
+            rendered_items.append(f"[{image}]({link})")
         else:
-            content = image
+            rendered_items.append(image)
 
-        cells.append(f"<td{table_cell_attr(margin)}>{content}</td>")
-
-    # A single-row HTML table is the most reliable horizontal layout in
-    # GitHub profile READMEs while preserving each icon's 40x40 image size.
-    return [
-        '<table><tbody><tr>',
-        *cells,
-        '</tr></tbody></table>',
-    ]
+    # Keep the section as one Markdown paragraph so GitHub renders icons inline.
+    return [" &nbsp; ".join(rendered_items)]
 
 
 def build_connect_html(items: list[IconItem], margin: str | None = None) -> list[str]:
