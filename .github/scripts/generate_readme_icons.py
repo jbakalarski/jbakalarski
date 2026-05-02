@@ -241,7 +241,7 @@ def build_items_html(items: list[IconItem], margin: str | None = None, disable_c
         else:
             grouped[key]["default"] = item
 
-    lines = ["<p align=\"left\">"]
+    icon_html: list[str] = []
     for name, link in order:
         item_group = grouped[(name, link)]
         disable_click_for_item = disable_click and not bool(link)
@@ -254,11 +254,13 @@ def build_items_html(items: list[IconItem], margin: str | None = None, disable_c
             disable_click=disable_click_for_item,
         )
         if link:
-            lines.append(f"<a href=\"{link}\"{link_attrs(open_in_new_tab=True)}>{image}</a>")
+            icon_html.append(f"<a href=\"{link}\"{link_attrs(open_in_new_tab=True)}>{image}</a>")
         else:
-            lines.append(image)
-    lines.append("</p>")
-    return lines
+            icon_html.append(image)
+
+    # Keep the icons on one physical HTML line so GitHub's README renderer
+    # cannot turn generator newlines into separate visual rows.
+    return [f"<p align=\"left\">{' '.join(icon_html)}</p>"]
 
 
 def build_connect_html(items: list[IconItem], margin: str | None = None) -> list[str]:
@@ -274,7 +276,7 @@ def replace_marked_block(readme_text: str, start_marker: str, end_marker: str, b
     end_index = readme_text.find(end_marker)
 
     if start_index == -1 or end_index == -1 or end_index < start_index:
-        raise ValueError(f"Brakuje markerów w README: {start_marker} ... {end_marker}")
+        raise ValueError(f"Missing README markers: {start_marker} ... {end_marker}")
 
     before = readme_text[: start_index + len(start_marker)]
     after = readme_text[end_index:]

@@ -1,10 +1,10 @@
 name: Generate README icons
 
 on:
-  # allows to manually run the job at any time
+  # Allow manual runs when the icon sections need to be refreshed immediately.
   workflow_dispatch:
 
-  # run on push when generator inputs change
+  # Run on push when generator inputs change.
   push:
     paths:
       - profile-icons
