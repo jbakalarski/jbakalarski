@@ -227,6 +227,12 @@ def build_theme_aware_image_from_items(
     )
 
 
+def table_cell_attr(margin: str | None) -> str:
+    if not margin or margin == "0":
+        return ' align="center" valign="middle"'
+    return f' align="center" valign="middle" width="{40 + (int(margin) * 2)}"'
+
+
 def build_items_html(items: list[IconItem], margin: str | None = None, disable_click: bool = False) -> list[str]:
     grouped: dict[tuple[str, str | None], dict[str, IconItem | None]] = {}
     order: list[tuple[str, str | None]] = []
@@ -241,7 +247,7 @@ def build_items_html(items: list[IconItem], margin: str | None = None, disable_c
         else:
             grouped[key]["default"] = item
 
-    icon_html: list[str] = []
+    cells: list[str] = []
     for name, link in order:
         item_group = grouped[(name, link)]
         disable_click_for_item = disable_click and not bool(link)
@@ -254,13 +260,19 @@ def build_items_html(items: list[IconItem], margin: str | None = None, disable_c
             disable_click=disable_click_for_item,
         )
         if link:
-            icon_html.append(f"<a href=\"{link}\"{link_attrs(open_in_new_tab=True)}>{image}</a>")
+            content = f"<a href=\"{link}\"{link_attrs(open_in_new_tab=True)}>{image}</a>"
         else:
-            icon_html.append(image)
+            content = image
 
-    # Keep the icons on one physical HTML line so GitHub's README renderer
-    # cannot turn generator newlines into separate visual rows.
-    return [f"<p align=\"left\">{' '.join(icon_html)}</p>"]
+        cells.append(f"<td{table_cell_attr(margin)}>{content}</td>")
+
+    # A single-row HTML table is the most reliable horizontal layout in
+    # GitHub profile READMEs while preserving each icon's 40x40 image size.
+    return [
+        '<table><tbody><tr>',
+        *cells,
+        '</tr></tbody></table>',
+    ]
 
 
 def build_connect_html(items: list[IconItem], margin: str | None = None) -> list[str]:
