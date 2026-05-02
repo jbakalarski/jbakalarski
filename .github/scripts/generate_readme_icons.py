@@ -177,51 +177,22 @@ def resolve_source(item: IconItem | None, preferred_variant: str | None) -> str 
     return icon_url(item.source, variant)
 
 
-def image_spacing_attr(margin: str | None) -> str:
-    if not margin or margin == "0":
-        return ""
-    return f' hspace="{margin}" vspace="{margin}"'
-
-
-def image_behavior_attr(disable_click: bool) -> str:
-    if not disable_click:
-        return ""
-    return ' style="pointer-events: none;"'
-
-
-def build_theme_aware_image_from_items(
+def build_image_from_items(
     name: str,
     default_item: IconItem | None,
     white_item: IconItem | None,
     black_item: IconItem | None,
-    margin: str | None,
-    disable_click: bool = False,
 ) -> str:
-    has_white = white_item is not None
-    has_black = black_item is not None
-    behavior_attr = image_behavior_attr(disable_click)
-
-    if not has_white and not has_black:
-        default_src = resolve_source(default_item, None) or icon_url(name)
-        return f"<img src=\"{default_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)}{behavior_attr} />"
-
-    dark_src = resolve_source(white_item, "white") or resolve_source(default_item, "white") or resolve_source(black_item, "black")
-    light_src = resolve_source(black_item, "black") or resolve_source(default_item, "black") or resolve_source(white_item, "white")
-
-    if dark_src is None or light_src is None:
-        fallback_src = resolve_source(default_item, None) or icon_url(name)
-        return f"<img src=\"{fallback_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)}{behavior_attr} />"
-
-    return (
-        "<picture>"
-        f"<source media=\"(prefers-color-scheme: dark)\" srcset=\"{dark_src}\" />"
-        f"<source media=\"(prefers-color-scheme: light)\" srcset=\"{light_src}\" />"
-        f"<img src=\"{light_src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\"{image_spacing_attr(margin)}{behavior_attr} />"
-        "</picture>"
+    src = (
+        resolve_source(default_item, None)
+        or resolve_source(white_item, "white")
+        or resolve_source(black_item, "black")
+        or icon_url(name)
     )
+    return f"<img src=\"{src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\" />"
 
 
-def build_items_html(items: list[IconItem], margin: str | None = None, disable_click: bool = False) -> list[str]:
+def build_items_html(items: list[IconItem], link_icons: bool = False) -> list[str]:
     grouped: dict[tuple[str, str | None], dict[str, IconItem | None]] = {}
     order: list[tuple[str, str | None]] = []
 
@@ -238,30 +209,27 @@ def build_items_html(items: list[IconItem], margin: str | None = None, disable_c
     rendered_items: list[str] = []
     for name, link in order:
         item_group = grouped[(name, link)]
-        disable_click_for_item = disable_click and not bool(link)
-        image = build_theme_aware_image_from_items(
+        image = build_image_from_items(
             name,
             default_item=item_group["default"],
             white_item=item_group["white"],
             black_item=item_group["black"],
-            margin=margin,
-            disable_click=disable_click_for_item,
         )
-        if link:
-            rendered_items.append(f"[{image}]({link})")
+        if link and link_icons:
+            rendered_items.append(f"<a href=\"{link}\">{image}</a>")
         else:
             rendered_items.append(image)
 
     # Keep the section as one Markdown paragraph so GitHub renders icons inline.
-    return [" &nbsp; ".join(rendered_items)]
+    return [" ".join(rendered_items)]
 
 
 def build_connect_html(items: list[IconItem], margin: str | None = None) -> list[str]:
-    return build_items_html(items, margin=margin)
+    return build_items_html(items, link_icons=True)
 
 
 def build_tools_html(items: list[IconItem], margin: str | None = None) -> list[str]:
-    return build_items_html(items, margin=margin, disable_click=True)
+    return build_items_html(items)
 
 
 def replace_marked_block(readme_text: str, start_marker: str, end_marker: str, block_lines: list[str]) -> str:
