@@ -189,7 +189,7 @@ def build_image_from_items(
         or resolve_source(black_item, "black")
         or icon_url(name)
     )
-    return f"<img src=\"{src}\" width=\"40\" height=\"40\" alt=\"{icon_alt(name)}\" />"
+    return f"<img src=\"{src}\" alt=\"{icon_alt(name)}\" width=\"40\" height=\"40\" />"
 
 
 def build_items_html(items: list[IconItem], link_icons: bool = False) -> list[str]:
@@ -216,12 +216,12 @@ def build_items_html(items: list[IconItem], link_icons: bool = False) -> list[st
             black_item=item_group["black"],
         )
         if link and link_icons:
-            rendered_items.append(f"<a href=\"{link}\">{image}</a>")
+            rendered_items.append(f"<a href=\"{link}\" target=\"_blank\" rel=\"noreferrer\"> {image} </a>")
         else:
             rendered_items.append(image)
 
-    # Keep the section as one Markdown paragraph so GitHub renders icons inline.
-    return [" ".join(rendered_items)]
+    # Match the compact inline pattern GitHub renders reliably in profile READMEs.
+    return [f"<p align=\"left\"> {' '.join(rendered_items)} </p>"]
 
 
 def build_connect_html(items: list[IconItem], margin: str | None = None) -> list[str]:
